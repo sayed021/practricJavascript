@@ -2,18 +2,17 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Pagination</title>
+	<title>Datatype</title>
 </head>
 <body>
+
 	<div id="display"></div>
 	<button id="prev">prev</button>
 	<button id="next">next</button>
 	<script>
-
 		var arr = [{'id':4},{'id':5},{'id':7},{'id':8},{'id':9}];
 		var  current_id = 5;
 		var itemIndex = arr.map(function(o) { return o.id; }).indexOf(current_id);
-
 		document.getElementById('display').innerHTML = itemIndex+1;
 		document.getElementById('prev').addEventListener('click', function(e) {
 			if(itemIndex!=-1 && itemIndex != 0){
@@ -21,7 +20,6 @@
 				itemIndex--;
 			}
 		});
-
 		document.getElementById('next').addEventListener('click', function(e) {
 			if(itemIndex!==-1 && arr.length-1 > itemIndex){
 				document.getElementById('display').innerHTML = itemIndex+2;
@@ -29,5 +27,6 @@
 			}
 		});
 	</script>
+
 </body>
 </html>
