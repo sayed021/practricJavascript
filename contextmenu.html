@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.title{cursor:pointer;}
+		.nav{display:none;}
+
+		#items{
+		  list-style:none;
+		  margin:0px;
+		  margin-top:4px;
+		  padding-left:10px;
+		  padding-right:10px;
+		  padding-bottom:3px;
+		  font-size:17px;
+		  color: #333333;
+		}
+		#cntnr{
+		  display:none;
+		  position:fixed;
+		  border:1px solid #B2B2B2;
+		  width:150px;      background:#F9F9F9;
+		  box-shadow: 3px 3px 2px #E9E9E9;
+		  border-radius:4px;
+		}
+		li{
+		  padding: 3px;
+		  padding-left:10px;
+		}
+		#items :hover{
+		   color: white;
+		  background:#284570;
+		  border-radius:2px;
+		}
+
+
+	</style>
+</head>
+<body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<div class='title'>MENU</div>
+	<div class='nav'>
+	<a href = 'https://google.com'>Google</a>
+	</div>
+
+	<div id='cntnr'>
+	    <ul id='items'>
+	    	<li><a target="_blank" href="#">Open new tab</a></li>
+	    </ul>
+	 </div>
+
+<script> 
+
+	$('.title').on('click', function(){
+	  $('.nav').slideDown();
+	});
+
+	$('.nav').on('click', function(){
+		$(this).slideUp();
+	});
+
+	$('.nav a').on("mousedown",function(e){
+		e.preventDefault();
+		if(event.which==3){
+			$('#item li a').attr('href', $(this).attr('href'));
+		}
+		
+	});
+
+	$('.nav a').bind("contextmenu",function(e){
+	  	e.preventDefault();
+		$("#cntnr").css("left",e.pageX);
+		$("#cntnr").css("top",e.pageY);     
+		$("#cntnr").fadeIn(200,startFocusOut());    
+	});
+
+	$("#items").on('click', 'a', function(event) {
+		event.stopPropagation();
+		$('.nav').slideUp();
+		$("#cntnr").hide(); 
+		window.open($(this).attr('href'), '_blank'  );
+	});
+	
+	function startFocusOut(){
+	  $(document).on("click",function(){
+		  $("#cntnr").hide();        
+		  $(document).off("click");
+	  });
+	}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<table id="tableEmpList">
+	<tr>
+		<td><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magn
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href="#" class="addRow">(+)</a></p></td>
+	</tr>
+
+	<tr>
+		<td><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magn
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href="#" class="addRow">(+)</a></p></td>
+	</tr>
+	<tr>
+		<td><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magn
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href="#" class="addRow">(+)</a></p></td>
+	</tr>
+</table>
+
+	<script>
+		$('#tableEmpList').on('click', 'a.addRow', function(event) {
+			event.preventDefault();
+			var _Result="<tr><td>New Row</td></tr>";
+			$(this).parents('tr').after(_Result);
+			$(this).text('(-)').removeClass('addRow').addClass('removeRow');
+		});
+		$('#tableEmpList').on('click', 'a.removeRow', function(event) {
+			event.preventDefault();
+			$(this).parents('tr').next('tr').remove();
+			$(this).text('(+)').addClass('addRow').removeClass('removeRow');
+		});
+	</script>
+	
+</body>
+</html>
