@@ -1,25 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-	<meta charset="UTF-8">
-	<title>Learn javascript</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="hello.js"></script>
+    <style>
+        #parent {
+            width: 400px;
+            overflow: auto;
+            margin: 0 auto;
+        }
+        #canvas {
+            width: 1150px;
+            height: 350px;
+            border: 1px solid red;
+            background: #eee;
+            padding: 10px;
+        }
+    </style>
 </head>
+
 <body>
 
-	<input type="text" id="value1">
-	<input type="text" id="value2">
-	
-	<div id="display">
-		
-	</div>
+    <div>
+        <div id="parent">
+            <div id="canvas">
+                <h2>This is heading</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore esse natus illum ex quasi distinctio porro molestias dignissimos harum, doloremque repudiandae dolorem blanditiis temporibus, architecto perferendis earum veritatis sapiente labore in tempora? Perferendis vero ratione provident dolorem consequuntur error ab officiis unde tempore molestias eum, eos, laboriosam harum mollitia, explicabo earum excepturi maiores quam illo repudiandae doloremque dolor ipsam? Eligendi aliquam asperiores qui corrupti obcaecati dolor dolore officiis amet. Officiis velit laboriosam aliquam iste at sed suscipit repudiandae eaque necessitatibus commodi esse laudantium facere tempora ipsum magnam adipisci, nam sapiente consequatur provident! Expedita nobis voluptate rerum quibusdam aut nostrum quo veniam consequatur blanditiis, quaerat animi quia accusantium dignissimos quod. Expedita sunt officia eveniet pariatur quidem commodi officiis possimus, tempore minima laudantium ducimus veniam laboriosam temporibus nulla ut nemo odio. Alias, tempora. Recusandae voluptatum quam suscipit est doloremque natus, cupiditate quia libero similique, ut numquam facere totam. Incidunt itaque illum sunt.</p>
+            </div>
+        </div>
+    </div>
+    <button onClick="HelloFunc()">Click</button> 
 
-	<button id="myclass">
-		change text
-	</button>
+    <script>
 
+        document.addEventListener('DOMContentLoaded', function () {
+            var containerWidth = document.getElementById('canvas').parentElement.offsetWidth;           
+            // base container width 800px and canvas width 1150px
+            //width calculation 
+            document.getElementById('canvas').style.width = containerWidth*(1150/800) + 'px';
 
-	<script src="example.js" ></script>
+        });
 
-	
+    </script>
+
 </body>
+
 </html>
