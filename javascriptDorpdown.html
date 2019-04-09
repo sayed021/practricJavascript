@@ -77,9 +77,21 @@
 	</style>
 </head>
 <body>
+	<span class="position-relative">
+		<a dropdownButton='myDropdown' href="#">clickme!</a>
+		<ul id="myDropdown" class="customDropdown">
+			<li><a href="#">Item</a></li>
+			<li class="active"><a href="#">Item</a></li>
+			<li><a href="#">Item</a></li>
+			<li><a href="#">Item</a></li>
+			<li><a href="#">Item</a></li>
+		</ul>
+	</span>
+
+	<div style="text-align: center;">
 		<span class="position-relative">
-			<a dropdownButton='myDropdown' href="#">clickme!</a>
-			<ul id="myDropdown" class="customDropdown">
+			<a dropdownButton='myDropdown2' href="#">clickme!</a>
+			<ul id="myDropdown2" class="customDropdown">
 				<li><a href="#">Item</a></li>
 				<li class="active"><a href="#">Item</a></li>
 				<li><a href="#">Item</a></li>
@@ -87,41 +99,27 @@
 				<li><a href="#">Item</a></li>
 			</ul>
 		</span>
+	</div>
 
-		<div style="text-align: center;">
-			<span class="position-relative">
-				<a dropdownButton='myDropdown2' href="#">clickme!</a>
-				<ul id="myDropdown2" class="customDropdown">
-					<li><a href="#">Item</a></li>
-					<li class="active"><a href="#">Item</a></li>
-					<li><a href="#">Item</a></li>
-					<li><a href="#">Item</a></li>
-					<li><a href="#">Item</a></li>
-				</ul>
-			</span>
-		</div>
+	<span class="position-relative">
+		<a dropdownButton='myDropdown3' href="#">clickme!</a>
+		<ul id="myDropdown3" class="customDropdown">
+			<li><a href="#">Item</a></li>
+			<li class="active"><a href="#">Item</a></li>
+			<li><a href="#">Item</a></li>
+			<li><a href="#">Item</a></li>
+			<li><a href="#">Item</a></li>
+		</ul>
+	</span>
 
-		<span class="position-relative">
-			<a dropdownButton='myDropdown3' href="#">clickme!</a>
-			<ul id="myDropdown3" class="customDropdown">
-				<li><a href="#">Item</a></li>
-				<li class="active"><a href="#">Item</a></li>
-				<li><a href="#">Item</a></li>
-				<li><a href="#">Item</a></li>
-				<li><a href="#">Item</a></li>
-			</ul>
-		</span>
-
-
-		<script>
-			document.addEventListener('click', function(e){
-				if (e.target.hasAttribute('dropdownButton')) {
-					var dropdownElement = e.target.getAttribute('dropdownButton');
-					console.log(dropdownElement);
-					document.getElementById(dropdownElement).classList.toggle('active');
-				}
-			})
-		</script>
-
+	<script>
+		document.addEventListener('click', function(e){
+			if (e.target.hasAttribute('dropdownButton')) {
+				var dropdownElement = e.target.getAttribute('dropdownButton');
+				console.log(dropdownElement);
+				document.getElementById(dropdownElement).classList.toggle('active');
+			}
+		})
+	</script>
 </body>
 </html>
