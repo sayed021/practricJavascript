@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body { background: #be56d8; }
+
+		.position-relative {
+			position: relative;
+			display: inline-block;
+		}
+		.customDropdown {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			z-index: 99;
+			background: transparent;
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			width: 200px;
+			padding-top: 15px;
+			opacity: 0;
+			visibility: hidden;
+			transform: translateY(5px);
+			transition: transform 0.3s, visibility 0.3s, opacity 0.3s;
+		}
+		.customDropdown.active {
+			opacity: 1;
+			visibility: visible;
+			transform: translateY(0);
+		}
+		.customDropdown li {
+			position: relative;
+			background: #fff;
+			list-style-type: none;
+			padding: 0;
+			font-size: 14px;
+			color: #333;
+			font-weight: 400;
+			text-align: left;
+		}
+		.customDropdown li a {
+			text-decoration: none;
+			color: #333;
+			display: block;
+			padding: 10px;
+			transition: 0.3s;
+		}
+		.customDropdown li a:hover {
+			background: #eee;
+		}
+		.customDropdown li:first-child a,
+		.customDropdown li:first-child {
+			border-radius: 5px 5px 0 0;
+		}
+		.customDropdown li:last-child a,
+		.customDropdown li:last-child {
+			border-radius: 0 0 5px 5px;
+		}
+		.customDropdown li:first-child:before {
+			content: '';
+			display: inline-block;
+			border: 10px solid transparent; 
+			border-color: transparent  transparent #fff transparent;
+			position: absolute;
+			bottom: 100%;
+			left: 15px;
+		}
+		.customDropdown .active,
+		.customDropdown li.active a {
+			background: #999;
+			color: #fff;
+		}
+
+	</style>
+</head>
+<body>
+		<span class="position-relative">
+			<a dropdownButton='myDropdown' href="#">clickme!</a>
+			<ul id="myDropdown" class="customDropdown">
+				<li><a href="#">Item</a></li>
+				<li class="active"><a href="#">Item</a></li>
+				<li><a href="#">Item</a></li>
+				<li><a href="#">Item</a></li>
+				<li><a href="#">Item</a></li>
+			</ul>
+		</span>
+
+		<div style="text-align: center;">
+			<span class="position-relative">
+				<a dropdownButton='myDropdown2' href="#">clickme!</a>
+				<ul id="myDropdown2" class="customDropdown">
+					<li><a href="#">Item</a></li>
+					<li class="active"><a href="#">Item</a></li>
+					<li><a href="#">Item</a></li>
+					<li><a href="#">Item</a></li>
+					<li><a href="#">Item</a></li>
+				</ul>
+			</span>
+		</div>
+
+		<span class="position-relative">
+			<a dropdownButton='myDropdown3' href="#">clickme!</a>
+			<ul id="myDropdown3" class="customDropdown">
+				<li><a href="#">Item</a></li>
+				<li class="active"><a href="#">Item</a></li>
+				<li><a href="#">Item</a></li>
+				<li><a href="#">Item</a></li>
+				<li><a href="#">Item</a></li>
+			</ul>
+		</span>
+
+
+		<script>
+			document.addEventListener('click', function(e){
+				if (e.target.hasAttribute('dropdownButton')) {
+					var dropdownElement = e.target.getAttribute('dropdownButton');
+					console.log(dropdownElement);
+					document.getElementById(dropdownElement).classList.toggle('active');
+				}
+			})
+		</script>
+
+</body>
+</html>
